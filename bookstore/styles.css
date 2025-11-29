@@ -1,0 +1,19 @@
+/* styles.css - simple clean style */
+body { margin:0; font-family: Arial, Helvetica, sans-serif; color:#222; }
+.header { display:flex; align-items:center; gap:20px; padding:12px 20px; background:#f6f6f6; border-bottom:1px solid #ddd; }
+.logo { font-size:32px; }
+.site-title { font-weight:700; font-size:18px; }
+.top-nav a { margin-right:12px; text-decoration:none; color:#0366d6; }
+.container { padding:20px; }
+.book-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.book-card { border:1px solid #ddd; padding:12px; display:flex; gap:10px; align-items:flex-start; background:#fff; border-radius:6px; }
+.cover img { max-width:100px; height:auto; display:block; }
+.placeholder { width:100px;height:140px;background:#eee; display:flex;align-items:center;justify-content:center;color:#888; border-radius:4px; }
+.meta h3 { margin:0 0 6px 0; font-size:16px; }
+.price { font-weight:700; margin-top:6px; }
+.actions button { padding:6px 10px; border: none; background:#0b5; color:#fff; border-radius:4px; cursor:pointer; }
+.form-wrapper { max-width:520px; margin:30px auto; padding:18px; border:1px solid #ddd; border-radius:6px; background:#fff; }
+.form-wrapper label { display:block; margin-bottom:10px; }
+.form-wrapper input[type="text"], .form-wrapper input[type="email"], .form-wrapper input[type="password"], .form-wrapper textarea, .form-wrapper select { width:100%; padding:8px; margin-top:6px; box-sizing:border-box; }
+.form-actions { display:flex; gap:8px; justify-content:flex-end; margin-top:12px; }
+.cart-total { font-weight:700; margin-top:12px; }

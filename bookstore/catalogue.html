@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Catalogue</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h2 id="cat-title">Catalogue</h2>
+    <div id="book-list" class="book-grid"></div>
+  </div>
+
+  <script>
+  const allBooks = [
+    { id: 'xml-bible', category: 'CSE', title: 'XML Bible', author: 'Winston', publisher: 'Wiley', price: 40.5, img: 'images/xmlbible.jpg' },
+    { id: 'java2', category: 'ECE', title: 'Java 2', author: 'Watson', publisher: 'BPB', price: 35.5, img: 'images/java2.jpg' },
+    { id: 'ai', category: 'CIVIL', title: 'AI', author: 'S. Russel', publisher: 'Princeton Hall', price: 63, img: 'images/ai.jpg' },
+    { id: 'html24', category: 'EEE', title: 'HTML in 24 hours', author: 'Sam Peter', publisher: 'Sam publication', price: 50, img: 'images/html24.jpg' }
+  ];
+  function getQueryParam(name) {
+    return new URLSearchParams(location.search).get(name);
+  }
+
+  function renderCatalogue() {
+    const cat = getQueryParam('cat') || 'All';
+    document.getElementById('cat-title').textContent = cat === 'All' ? 'All Books' : `${cat} Books`;
+    const list = document.getElementById('book-list');
+    list.innerHTML = '';
+    const filtered = cat === 'All' ? allBooks : allBooks.filter(b=>b.category===cat);
+    filtered.forEach(b=>{
+      const card = document.createElement('div');
+      card.className = 'book-card';
+      card.innerHTML = `
+        <div class="cover">${b.img ? `<img src="${b.img}" alt="${b.title}">` : '<div class="placeholder">Cover</div>'}</div>
+        <div class="meta">
+          <h3>${b.title}</h3>
+          <p><strong>Author:</strong> ${b.author}</p>
+          <p><strong>Publication:</strong> ${b.publisher}</p>
+          <p class="price">$ ${b.price.toFixed(2)}</p>
+          <div class="actions"><button onclick="addToCart('${b.id}')">Add to cart</button></div>
+        </div>
+      `;
+      list.appendChild(card);
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', renderCatalogue);
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Online Book Store - Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    /* small override to ensure iframe layout */
+    .top-frame { height:80px; }
+    .main { display:flex; height: calc(100vh - 80px); }
+    .left-frame { width:200px; }
+    .right-frame { flex:1; }
+    iframe { border: none; width:100%; height:100%; }
+  </style>
+</head>
+<body>
+  <div class="top-frame header">
+    <div class="logo">📚</div>
+    <div class="site-title">College Book Store</div>
+    <nav class="top-nav">
+      <a href="index.html" target="_self">Home</a>
+      <a href="login.html" target="_top">Login</a>
+      <a href="register.html" target="_top">Registration</a>
+      <a href="catalogue.html" target="right">Catalogue</a>
+      <a href="cart.html" target="_top">Cart</a>
+    </nav>
+  </div>
+
+  <div class="main">
+    <div class="left-frame">
+      <iframe name="left" src="left_nav.html"></iframe>
+    </div>
+    <div class="right-frame">
+      <iframe name="right" src="right_default.html"></iframe>
+    </div>
+  </div>
+</body>
+</html>
